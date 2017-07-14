@@ -1,0 +1,42 @@
+class Storyboard {
+    field String str;
+    field int i;
+    field int length;
+    field char c;
+    field int waitTime;
+    field char key;
+    field int indentation;
+    field int beginningRow;
+
+    constructor Storyboard new(String _str, int _b, int _i) {
+        let str = _str;
+        let indentation = _i;
+        let beginningRow = _b;
+        let key = 0;
+        let waitTime = 30;
+        let length = str.length();
+        return this;
+    }
+
+    method void dispose() {
+        do Memory.deAlloc(this);
+        return;
+    }
+
+    method void typeout() {
+        let i = 0;
+        do Output.moveCursor(beginningRow, indentation);
+         while(i < length) {
+            let key = Keyboard.keyPressed();
+            if(~(key = 0)) {
+                let waitTime = 0;
+            }
+            let c = str.charAt(i);
+            do Output.printChar(c);
+            let i = i + 1;
+            do Sys.wait(waitTime);
+        }
+        return;
+    }
+
+}

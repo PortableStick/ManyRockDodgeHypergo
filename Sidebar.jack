@@ -1,0 +1,83 @@
+class Sidebar {
+    field int memAddress;
+    field int score;
+    field int stage;
+    field int lives;
+    field int speed;
+    field String currentLaser;
+
+    constructor Sidebar new(int borderPosition) {
+        do drawBorder(borderPosition);
+        return this;
+    }
+
+    method void drawBorder(int location) {
+        var int i;
+        do Screen.setColor(true);
+        let memAddress = 16384+location;
+        let i = 0;
+        while(i < 256) {
+            do Memory.poke(memAddress + (i * 32), 257);
+            let i = i + 1;
+        }
+        do Output.moveCursor(0,1);
+        do Output.printString("Many Rock Dodge");
+        do Output.moveCursor(1, 3);
+        do Output.printString("HYPERGO!!");
+        do Output.moveCursor(3, 1);
+        do Output.printString("Score: ");
+        do setScore(0);
+        do Output.moveCursor(4, 1);
+        do Output.printString("Stage: ");
+        do setStage(0);
+        do Output.moveCursor(5, 1);
+        do Output.printString("Lives: ");
+        do setLives(4);
+        do Output.moveCursor(6, 1);
+        do Output.printString("Speed: ");
+        do setSpeed(1);
+        do Output.moveCursor(18, 1);
+        do Output.printString("Laser: ");
+        do setLaser("Standard");
+        do Output.moveCursor(21, 1);
+        do Output.printString("R: reset");
+        do Output.moveCursor(22, 1);
+        do Output.printString("Q: quit");
+        return;
+    }
+
+    method void setScore(int newScore) {
+        let score = newScore;
+        do Output.moveCursor(3, 9);
+        do Output.printInt(score);
+        return;
+    }
+
+    method void setStage(int newStage) {
+        let stage = newStage;
+        do Output.moveCursor(4, 9);
+        do Output.printInt(stage);
+        return;
+    }
+
+    method void setLives(int newLives) {
+        let lives = newLives;
+        do Output.moveCursor(5, 9);
+        do Output.printInt(lives);
+        return;
+    }
+
+    method void setSpeed(int newSpeed) {
+        let speed = newSpeed;
+        do Output.moveCursor(6, 9);
+        do Output.printInt(speed);
+        return;
+    }
+
+    method void setLaser(String newLaser) {
+        let currentLaser = newLaser;
+        do Output.moveCursor(18, 9);
+        do Output.printString(currentLaser);
+        return;
+    }
+}
