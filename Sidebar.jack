@@ -39,8 +39,8 @@ class Sidebar {
         do Output.moveCursor(18, 1);
         do Output.printString("Laser: ");
         do setLaser("Standard");
-        do Output.moveCursor(21, 1);
-        do Output.printString("R: reset");
+        //do Output.moveCursor(21, 1);
+        //do Output.printString("R: reset");
         do Output.moveCursor(22, 1);
         do Output.printString("Q: quit");
         return;

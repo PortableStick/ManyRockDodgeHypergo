@@ -1,0 +1,19 @@
+class Rock {
+    field int column;
+    field int leftBound;
+
+    constructor Rock new(int _lb) {
+        let column = _col;
+        let leftBound = _lb;
+        return this;
+    }
+
+    method void dispose() {
+        do Memory.deAlloc(this);
+        return;
+    }
+
+    method int getRandomColumn() {
+        var
+    }
+}

@@ -1,0 +1,51 @@
+class LinkedList {
+    field Link first;
+
+    constructor LinkedList new() {
+        let first = null;
+        return this;
+    }
+
+    method boolean isEmpty() {
+        return first = null;
+    }
+
+    method void dispose() {
+        if(~(first = null)) {
+            do first.dispose();
+        }
+        do Memory.dealloc(this);
+        return;
+    }
+
+    method void insertRock(Rock _r) {
+        Link link = Link.newRockLink(_r);
+        do link.setLink(first);
+        let first = link;
+        return;
+    }
+
+    method void insertLaser(Laser _l) {
+        Link link = Link.newLaserLink(_l);
+        do link.setLink(first);
+        let first = link;
+        return;
+    }
+
+    method Link pop() {
+        var Link _f;
+        if(isEmpty()) {
+            return null;
+        }
+        let _f = first;
+        let first = first.getNext();
+        return _f;
+    }
+
+    method Link peek() {
+        if(isEmpty()) {
+            return null;
+        }
+        return first;
+    }
+}

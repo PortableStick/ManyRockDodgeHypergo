@@ -1,0 +1,32 @@
+class Link {
+    field Rock rock;
+    field Laser laser;
+    field Link next;
+
+    constructor Link newRockLink(Rock _r) {
+        let rock = _r;
+        return this;
+    }
+
+    constructor Link newLaserLink(Laser _l) {
+        let rock = _r;
+        return this;
+    }
+
+    method void setNext(Link _l) {
+        let next = _l;
+        return;
+    }
+
+    method Link getNext() {
+        return next;
+    }
+
+    method Rock getRock() {
+        return rock;
+    }
+
+    method Laser getLaser() {
+        return laser;
+    }
+}

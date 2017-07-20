@@ -9,6 +9,9 @@ class Game {
     field int l_loc;
     field Laser laser;
     field Sidebar sidebar;
+    field Array lasers;
+    field Array rocks;
+    field int sidebarEdge;
 
     constructor Game new(int width) {
         let rightBound = 7326;
@@ -17,7 +20,9 @@ class Game {
         let ship = Ship.new(shipLocation);
         let quit = false;
         let key = 0;
-        let sidebar = Sidebar.new( 32 - width - 1 );
+        let sidebarEdge = 32 - width - 1;
+        let sidebar = Sidebar.new(sidebarEdge);
+        let lasers =
         return this;
     }
 
@@ -29,6 +34,8 @@ class Game {
 
     method void play() {
          while(~(quit)) {
+            do calculateNewPositions();
+            do checkForCollisions();
             let key = Keyboard.keyPressed();
             if(key = 81) { let quit = true; }
             if(key = 130) {
@@ -47,5 +54,17 @@ class Game {
         }
 
         return;
+    }
+
+    method void checkForCollisions() {
+        return;
+    }
+
+    method void calculateNewPositions() {
+        return;
+    }
+
+    method void fireLaser() {
+
     }
 }

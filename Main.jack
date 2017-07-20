@@ -2,7 +2,8 @@ class Main {
 
     function void main() {
         var Game game;
-        let game = Game.new(22);
+        do Random.setSeed(1000);
+        let game = Game.new(22); // Sets width to 22 16-bit columns, calculated from the right of the screen
         do game.play();
         do game.dispose();
         return;
