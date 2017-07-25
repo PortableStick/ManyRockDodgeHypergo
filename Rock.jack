@@ -2,7 +2,7 @@ class Rock {
     field int column;
     field int leftBound;
 
-    constructor Rock new(int _lb) {
+    constructor Rock new(int _lb, int _col) {
         let column = _col;
         let leftBound = _lb;
         return this;
@@ -14,6 +14,6 @@ class Rock {
     }
 
     method int getRandomColumn() {
-        var
+        return 0;
     }
 }

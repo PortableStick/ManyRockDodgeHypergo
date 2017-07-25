@@ -9,8 +9,13 @@ class Link {
     }
 
     constructor Link newLaserLink(Laser _l) {
-        let rock = _r;
+        let laser = _l;
         return this;
+    }
+
+    method void dispose() {
+        do Memory.deAlloc(this);
+        return;
     }
 
     method void setNext(Link _l) {

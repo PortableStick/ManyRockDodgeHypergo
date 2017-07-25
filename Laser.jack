@@ -8,6 +8,7 @@ class Laser {
         let location = _l;
         let speed = _s;
         let hasHit = false;
+        do draw();
         return this;
     }
 
@@ -37,6 +38,17 @@ class Laser {
             } else {
                 let hasHit = true;
                 do dispose();
+            }
+        }
+        return;
+    }
+
+    method void moveUp() {
+        do clear();
+        if(location > 512) {
+            let location = location - (512 * speed);
+            if(location > 0) {
+                do draw();
             }
         }
         return;

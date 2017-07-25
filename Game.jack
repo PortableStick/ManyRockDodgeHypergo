@@ -7,10 +7,9 @@ class Game {
     field int rightBound;
     field int loc;
     field int l_loc;
-    field Laser laser;
     field Sidebar sidebar;
-    field Array lasers;
-    field Array rocks;
+    field LinkedList lasers;
+    field LinkedList rocks;
     field int sidebarEdge;
 
     constructor Game new(int width) {
@@ -22,7 +21,7 @@ class Game {
         let key = 0;
         let sidebarEdge = 32 - width - 1;
         let sidebar = Sidebar.new(sidebarEdge);
-        let lasers =
+        let lasers = LinkedList.new();
         return this;
     }
 
@@ -49,8 +48,9 @@ class Game {
                 }
             }
             if(key = 131) {
-                do ship.shoot();
+                do fireLaser();
             }
+            do Sys.wait(25);
         }
 
         return;
@@ -61,10 +61,22 @@ class Game {
     }
 
     method void calculateNewPositions() {
+        var Link _l;
+        var Laser _s;
+        let _l = lasers.peek();
+        while(~(_l = null)) {
+            let _s = _l.getLaser();
+            do _s.moveUp();
+            let _l = lasers.next();
+        }
+        do lasers.resetCounter();
         return;
     }
 
     method void fireLaser() {
-
+        var Laser tmpLaser;
+        let tmpLaser = Laser.new(ship.getLocation() - 512, 1);
+        do lasers.insertLaser(tmpLaser);
+        return;
     }
 }

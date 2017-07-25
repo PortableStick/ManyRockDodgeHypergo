@@ -1,13 +1,28 @@
 class LinkedList {
     field Link first;
+    field Link current;
 
     constructor LinkedList new() {
         let first = null;
+        let current = first;
         return this;
     }
 
     method boolean isEmpty() {
         return first = null;
+    }
+
+    method void resetCounter() {
+        let current = first;
+        return;
+    }
+
+    method Link next() {
+        if(current = null) {
+            return null;
+        }
+        let current = current.getNext();
+        return current;
     }
 
     method void dispose() {
@@ -19,33 +34,27 @@ class LinkedList {
     }
 
     method void insertRock(Rock _r) {
-        Link link = Link.newRockLink(_r);
-        do link.setLink(first);
+        var Link link;
+        let link = Link.newRockLink(_r);
         let first = link;
         return;
     }
 
     method void insertLaser(Laser _l) {
-        Link link = Link.newLaserLink(_l);
-        do link.setLink(first);
+        var Link link;
+        let link = Link.newLaserLink(_l);
         let first = link;
         return;
     }
 
     method Link pop() {
         var Link _f;
-        if(isEmpty()) {
-            return null;
-        }
         let _f = first;
         let first = first.getNext();
         return _f;
     }
 
     method Link peek() {
-        if(isEmpty()) {
-            return null;
-        }
         return first;
     }
 }
