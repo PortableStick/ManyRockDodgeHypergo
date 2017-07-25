@@ -2,6 +2,7 @@ class Link {
     field Rock rock;
     field Laser laser;
     field Link next;
+    field Link prev;
 
     constructor Link newRockLink(Rock _r) {
         let rock = _r;
@@ -23,8 +24,17 @@ class Link {
         return;
     }
 
+    method void setPrev(Link _l) {
+        let prev = _l;
+        return;
+    }
+
     method Link getNext() {
         return next;
+    }
+
+    method Link getPrev() {
+        return prev;
     }
 
     method Rock getRock() {

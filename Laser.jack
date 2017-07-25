@@ -45,11 +45,11 @@ class Laser {
 
     method void moveUp() {
         do clear();
-        if(location > 512) {
-            let location = location - (512 * speed);
-            if(location > 0) {
-                do draw();
-            }
+        let location = location - (512 * speed);
+        if(location > 0) {
+            do draw();
+        } else {
+            do dispose();
         }
         return;
     }

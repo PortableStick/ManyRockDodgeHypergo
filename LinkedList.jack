@@ -17,6 +17,22 @@ class LinkedList {
         return;
     }
 
+    method void destroyCurrent() {
+        var Link _p;
+        var Link _n;
+        let _p = current.getPrev();
+        let _n = current.getNext();
+        if(~(_p = null)) {
+            do _p.setNext(_n);
+        }
+        if(~(_n = null)) {
+            do _n.setPrev(_p);
+        }
+        do current.dispose();
+        let current = _n;
+        return;
+    }
+
     method Link next() {
         if(current = null) {
             return null;
@@ -43,6 +59,8 @@ class LinkedList {
     method void insertLaser(Laser _l) {
         var Link link;
         let link = Link.newLaserLink(_l);
+        do first.setPrev(link);
+        do link.setNext(first);
         let first = link;
         return;
     }
@@ -55,6 +73,7 @@ class LinkedList {
     }
 
     method Link peek() {
+        let current = first;
         return first;
     }
 }
